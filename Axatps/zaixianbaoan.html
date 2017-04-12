@@ -13,6 +13,7 @@
 		<script type="text/javascript" src="js/jquery.min.js"></script>
 		<script type="text/javascript" src="js/layer/layer.js"></script>
 		<script type="text/javascript" src="js/layui-master/build/layui.js"></script>
+		<script type="text/javascript" src="js/resize.js"></script>
 		<style type="text/css">
 			body {
 				background: #EBEFF2;
@@ -371,7 +372,7 @@
         	描述：这里写js
         -->
 		<script type="text/javascript">
-			$(function() {
+			$(function() { 
 
 				var mubanstr = ["<ul style=\"width: 100%;padding:20px;positon:relative;\">",
 					"			<li>",
@@ -432,7 +433,7 @@
 					// 设置样式
 					$(this).parents(".baoan-btngroup").find(".t_span").removeClass("t_selected");
 					$(this).find(".t_span").addClass("t_selected");
-					if(flag == "0") {
+					if (flag == "0") {
 						$(this).parents(".baoan-item").find(".otherinfo").hide();
 					} else {
 						$(this).parents(".baoan-item").find(".otherinfo").show();

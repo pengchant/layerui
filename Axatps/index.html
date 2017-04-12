@@ -8,9 +8,9 @@
 		<title>安盛天平团车在线报案</title>
 		<link rel="stylesheet" href="css/bootstrap.min.css" />
 		<link rel="stylesheet" href="js/layer/skin/default/layer.css" />
-		<link rel="stylesheet" type="text/css" href="js/layui-master/build/css/layui.css"/>
+		<link rel="stylesheet" type="text/css" href="js/layui-master/build/css/layui.css" />
 		<script type="text/javascript" src="js/jquery.min.js"></script>
-		<script type="text/javascript" src="js/layer/layer.js"></script>		 
+		<script type="text/javascript" src="js/layer/layer.js"></script>
 		<style type="text/css">
 			body {
 				background: #EBEFF2;
@@ -100,11 +100,23 @@
         	时间：2017-04-12
         	描述：主体内容
         -->
-		<div id="main_cont" class="container" style="margin-top:10px;padding: 0px;">
-			<iframe id="myiframe" style="width: 100%;min-height: 700px;border: none;"  src="xinxiweihu.html" id="main_window"></iframe>
+		<div id="main_cont" class="container" style="margin-top:10px;padding: 0px;margin-bottom: 10px;">
+			<iframe id="myiframe" name="myiframe" onload="iFrameHeight()" frameborder="0" scrolling="no" style="width: 100%;border: none;" scrolling="no" src="xinxiweihu.html" id="main_window"></iframe>
 		</div>
 		<script type="text/javascript">
+			// iframe自适应高度
+			function iFrameHeight() {
+				var ifm = document.getElementById("myiframe");
+				var subWeb = document.frames ? document.frames["myiframe"].document :ifm.contentDocument;
+				if (ifm != null && subWeb != null) {
+					ifm.height = subWeb.body.scrollHeight;
+				}
+			}
+
 			$(function() {
+
+				$("")
+
 				// 标记第几个选中
 				var noselected = 0;
 				// 获取iframe对象
@@ -130,11 +142,11 @@
 						layer.closeAll('loading');
 					}, 700);
 					// 开始页面跳转
-					if(noselected == "0") { // 信息维护
+					if (noselected == "0") { // 信息维护
 						$iframecontainer.attr("src", "xinxiweihu.html");
-					} else if(noselected == "1") { // 在线报案
+					} else if (noselected == "1") { // 在线报案
 						$iframecontainer.attr("src", "zaixianbaoan.html");
-					} else if(noselected == "2") { // 进度查询
+					} else if (noselected == "2") { // 进度查询
 						$iframecontainer.attr("src", "jinduchaxun.html");
 					}
 				});
